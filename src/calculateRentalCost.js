@@ -14,14 +14,19 @@ number of days.
  * @return {number}
  */
 function calculateRentalCost(days) {
-  const rentCost = 40 * days;
+  const DAILY_PRICE = 40;
+  const LONG_TERM = 7;
+  const LONG_TERM_DISCOUNT = 50;
+  const MEDIUM_TERM = 3;
+  const MEDIUM_TERM_DISCOUNT = 20;
+  const rentCost = DAILY_PRICE * days;
 
-  if (days >= 7) {
-    return rentCost - 50;
+  if (days >= LONG_TERM) {
+    return rentCost - LONG_TERM_DISCOUNT;
   }
 
-  if (days >= 3) {
-    return rentCost - 20;
+  if (days >= MEDIUM_TERM) {
+    return rentCost - MEDIUM_TERM_DISCOUNT;
   }
 
   return rentCost;
